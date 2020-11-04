@@ -1,6 +1,5 @@
 package com.thph.StyleGuideExample.impl;
 
-import com.ur.style.URIcon;
 import com.ur.style.URSpacingSize;
 import com.ur.style.components.URButtons;
 import com.ur.style.components.URDivider;
@@ -16,6 +15,7 @@ import com.ur.style.components.URTabs;
 import com.ur.style.components.URTextFields;
 import com.ur.style.components.URToggles;
 import com.ur.style.components.URWarningMessage;
+import com.ur.test.PreviewUI;
 import com.ur.urcap.api.contribution.ContributionProvider;
 import com.ur.urcap.api.contribution.program.swing.SwingProgramNodeView;
 import javax.swing.JPanel;
@@ -25,13 +25,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
-import java.awt.LayoutManager;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -56,7 +52,6 @@ public class ExampleProgramNodeView implements SwingProgramNodeView<ExampleProgr
 
 	private URSpacingSize urSpacingSize = new URSpacingSize();
 	private URSpacing urSpacing = new URSpacing();
-//	private URIcon iconLib = new URIcon();
 
 	public ExampleProgramNodeView() {
 
@@ -65,28 +60,49 @@ public class ExampleProgramNodeView implements SwingProgramNodeView<ExampleProgr
 	@Override
 	public void buildUI(JPanel panel, ContributionProvider<ExampleProgramNodeContribution> provider) {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		
 //		panel.add(showTextFields());
-//		panel.add(showTabs());
+		panel.add(showTabs());
 //		panel.add(showTables());
 //		panel.add(showSlider());
-		panel.add(showLoadingBar());
+//		panel.add(showLoadingBar());
 //		panel.add(showDivider());
 //		panel.add(showDifferentMessageType());
 //		panel.add(showToggles());
 //		panel.add(showButtons());
 
-//		Font font = panel.getFont();
-//		Border border = panel.getBorder();
-//		LayoutManager manger = panel.getLayout();
-//		Color bcolor = panel.getBackground();
-//		Color fcolor = panel.getForeground();
-//		
-//		
-//		System.out.println("Font: Family: " + font.getFamily() + " Style: " + font.getStyle() + " Size: " + font.getSize());
-//		System.out.println("LayoutManager: " + manger.getClass().getName());
-//		System.out.println("Height: " + panel.getHeight() + " Width: " + panel.getWidth());
-//		System.out.println("BackgroundColor: " + panel.getBackground() + " ForegroundColor: " + panel.getForeground());
-
+	}
+	
+	
+	/**
+	 * This main method to is used preview the programnode UI
+	 * without having to deploy to the robot.
+	 * To run, right-click on this class and run as java application.
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		
+		//Initialize the preview UI class.
+		PreviewUI ui = new PreviewUI();
+		
+		//Initialize the program node panel.
+		JPanel panel = ui.AddComponentsToUI("Example ProgramNode");
+		
+		//Adds UI component to the panel.
+		panel.add(ui.showTextFields());
+//		panel.add(ui.showTabs());
+//		panel.add(ui.showTables());
+//		panel.add(ui.showSlider());
+//		panel.add(ui.showLoadingBar());
+//		panel.add(ui.showDivider());
+//		panel.add(ui.showDifferentMessageType());
+//		panel.add(ui.showToggles());
+//		panel.add(ui.showButtons());
+		
+		//adds the panel to be able to preview.
+		ui.PreviewProgramNodeUI(panel);
+		
+		
 	}
 
 	private Box createTextFields() {
@@ -261,7 +277,6 @@ public class ExampleProgramNodeView implements SwingProgramNodeView<ExampleProgr
 		box.add(urSpacing.createVerticalSpacing(urSpacingSize.VERTICAL_SPACING));
 
 		JToggleButton toggle = toggleLib.getSmallToggleSelected(50);
-//		toggle.setIcon(iconLib.warning_icon_small);
 
 		box.add(toggle);
 		box.add(urSpacing.createVerticalSpacing(urSpacingSize.VERTICAL_SPACING));

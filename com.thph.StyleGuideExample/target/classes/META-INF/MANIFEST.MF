@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1604516427070
+Build-Jdk: 1.8.0_272
+Built-By: ur
+Bundle-Activator: com.thph.StyleGuideExample.impl.Activator
+Bundle-Category: URCap
+Bundle-ClassPath: .,StyleGuide-1.0.jar
+Bundle-ContactAddress: 123 URCap Street
+Bundle-Copyright: Copyright notice (C)
+Bundle-Description: This is a description of the URCap
+Bundle-LicenseType: License type
+Bundle-ManifestVersion: 2
+Bundle-Name: StyleGuideExample
+Bundle-SymbolicName: com.thph.StyleGuideExample
+Bundle-Vendor: URCaps R us Inc.
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: StyleGuide;scope=compile|runtime
+Embedded-Artifacts: StyleGuide-1.0.jar;g="com.ur";a="StyleGuide";v="1.0"
+Import-Package: com.ur.urcap.api.contribution;version="[1.7,2)",com.ur.u
+ rcap.api.contribution.program;version="[1.7,2)",com.ur.urcap.api.contri
+ bution.program.swing;version="[1.7,2)",com.ur.urcap.api.domain;version=
+ "[1.7,2)",com.ur.urcap.api.domain.data;version="[1.7,2)",com.ur.urcap.a
+ pi.domain.script;version="[1.7,2)",javax.imageio,javax.swing,javax.swin
+ g.border,javax.swing.plaf,javax.swing.plaf.basic,javax.swing.table,org.
+ osgi.framework;version="[1.6,2)"
+Tool: Bnd-2.1.0.20130426-122213
